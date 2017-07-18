@@ -232,7 +232,17 @@ public class MonsterTest {
                assertEquals(DateFormat.getDateTimeInstance().format(rightNow), DateFormat.getDateTimeInstance().format(savedMonsterLastPlayed));
              }
 
-
+             @Test
+               public void timer_executesDepleteLevelsMethod() {
+                 Monster testMonster = new Monster("Bubbles", 1);
+                 int firstPlayLevel = testMonster.getPlayLevel();
+                 testMonster.startTimer();
+                 try {
+                   Thread.sleep(6000);
+                 } catch (InterruptedException exception){}
+                 int secondPlayLevel = testMonster.getPlayLevel();
+                 assertTrue(firstPlayLevel > secondPlayLevel);
+               }
 
 
 }
