@@ -1,4 +1,4 @@
-import org.junit.*;
+/*import org.junit.*;
 import static org.junit.Assert.*;
 import org.sql2o.*;
 import java.sql.Timestamp;
@@ -245,4 +245,4 @@ public class MonsterTest {
                }
 
 
-}
+}*/
