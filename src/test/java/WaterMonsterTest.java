@@ -299,7 +299,15 @@ public class WaterMonsterTest {
       assertEquals(testWaterMonster.getWaterLevel(), (WaterMonster.MAX_WATER_LEVEL / 2) - 1);
     }
 
-
+    @Test
+     public void water_recordsTimeLastWaterInDatabase() {
+       WaterMonster testWaterMonster = new WaterMonster("Bubbles", 1);
+       testWaterMonster.save();
+       testWaterMonster.water();
+       Timestamp savedWaterMonsterLastWater = WaterMonster.find(testWaterMonster.getId()).getLastWater();
+       Timestamp rightNow = new Timestamp(new Date().getTime());
+       assertEquals(DateFormat.getDateTimeInstance().format(rightNow), DateFormat.getDateTimeInstance().format(savedWaterMonsterLastWater));
+     }
 
 
 

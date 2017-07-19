@@ -308,4 +308,15 @@ public class FireMonsterTest {
     assertEquals(testFireMonster.getFireLevel(), (FireMonster.MAX_FIRE_LEVEL / 2) - 1);
 }
 
+
+@Test
+  public void kindling_recordsTimeLastKindlingInDatabase() {
+    FireMonster testFireMonster = new FireMonster("Bubbles", 1);
+    testFireMonster.save();
+    testFireMonster.kindling();
+    Timestamp savedFireMonsterLastKindling = FireMonster.find(testFireMonster.getId()).getLastKindling();
+    Timestamp rightNow = new Timestamp(new Date().getTime());
+    assertEquals(DateFormat.getDateTimeInstance().format(rightNow), DateFormat.getDateTimeInstance().format(savedFireMonsterLastKindling));
+  }
+
 }

@@ -14,6 +14,7 @@ public abstract class Monster {
     public int foodLevel;
     public int sleepLevel;
     public int playLevel;
+    public String type;
 
     public Timestamp birthday;
     public Timestamp lastSlept;
@@ -89,10 +90,11 @@ public abstract class Monster {
 
   public void save() {
       try(Connection con = DB.sql2o.open()) {
-        String sql = "INSERT INTO monsters (name, personid, birthday) VALUES (:name, :personId, now())";
+        String sql = "INSERT INTO monsters (name, personid, birthday, type) VALUES (:name, :personId, now(), :type)";
         this.id = (int) con.createQuery(sql, true)
           .addParameter("name", this.name)
           .addParameter("personId", this.personId)
+          .addParameter("type", this.type)
           .executeUpdate()
           .getKey();
       }
