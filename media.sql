@@ -239,6 +239,8 @@ SELECT pg_catalog.setval('communities_persons_id_seq', 1, false);
 --
 
 COPY monsters (id, name, personid, birthday, lastate, lastslept, lastplay, type, lastwater, lastkindling) FROM stdin;
+1	Bubble	1	\N	\N	\N	\N	water	\N	\N
+2	Spud	1	\N	\N	\N	\N	fire	\N	\N
 \.
 
 
@@ -246,7 +248,7 @@ COPY monsters (id, name, personid, birthday, lastate, lastslept, lastplay, type,
 -- Name: monsters_id_seq; Type: SEQUENCE SET; Schema: public; Owner: Guest
 --
 
-SELECT pg_catalog.setval('monsters_id_seq', 1, false);
+SELECT pg_catalog.setval('monsters_id_seq', 2, true);
 
 
 --
