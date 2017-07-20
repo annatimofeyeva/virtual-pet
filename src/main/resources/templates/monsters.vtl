@@ -1,0 +1,13 @@
+<h3>Water Monsters:</h3>
+  <ul>
+    #foreach ($monster in $firemonsters)
+      <li><a href="/person/$person.getId()/monsters/$monster.getId()">$monster.getName() $monster.getType()</a></li>
+    #end
+  </ul>
+
+<h3>Fire Monsters:</h3>
+  <ul>
+    #foreach ($monster in $watermonsters)
+      <li><a href="/person/$person.getId()/monsters/$monster.getId()">$monster.getName() $monster.getType()</a></li>
+    #end
+  </ul>

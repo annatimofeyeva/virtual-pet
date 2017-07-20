@@ -41,6 +41,11 @@ public abstract class Monster {
       return name;
   }
 
+  public String getType(){
+    return type;
+}
+
+
     public int getPersonId(){
       return personId;
   }

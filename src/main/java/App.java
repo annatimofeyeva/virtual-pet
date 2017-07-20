@@ -31,6 +31,15 @@ public class App{
     }, new VelocityTemplateEngine());
 
 
+    get("/monsters", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      model.put("template", "templates/monsters.vtl");
+      model.put("watermonsters", FireMonster.all());
+      model.put("firemonsters", WaterMonster.all());
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
+
 
   }
 }
